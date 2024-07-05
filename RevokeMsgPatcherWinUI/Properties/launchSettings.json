@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RevokeMsgPatcherWinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "RevokeMsgPatcherWinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
