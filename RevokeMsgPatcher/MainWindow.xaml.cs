@@ -17,6 +17,8 @@ using Microsoft.UI;
 using WinRT.Interop;
 using Windows.Graphics;
 using Microsoft.UI.Composition.SystemBackdrops;
+using Windows.Devices.Enumeration;
+using RevokeMsgPatcher.Views;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -43,11 +45,19 @@ namespace RevokeMsgPatcher
 
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
+            SettingsButtonIcon.Glyph = "\uE713;";
+            ContentFrame.Navigate(typeof(MainPage));
         }
 
         public string GetAppTitleFromSystem()
         {
             return Windows.ApplicationModel.Package.Current.DisplayName;
+        }
+
+        public void GoToSettings(object sender, RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(SettingsPage));
+            SettingsButtonIcon.Glyph = "\uE713;";
         }
 
         private AppWindow GetAppWindowForCurrentWindow()
