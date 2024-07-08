@@ -6,10 +6,23 @@
     xmlns:local="using:RevokeMsgPatcher.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
 
-    <Grid>
-        <TextBlock Text="caocaocaocao"/>
-    </Grid>
+
+    <ScrollViewer Margin="30,10,30,0" VerticalAlignment="Top">
+        <StackPanel>
+            <controls:SettingsCard x:Name="settingsCard"
+                               Description="This is a default card, with the Header, HeaderIcon, Description and Content set."
+                               Header="This is the Header"
+                               HeaderIcon="{ui:FontIcon Glyph=&#xE799;}"
+                               IsEnabled="True">
+                <ComboBox SelectedIndex="0" x:Name="SelectTheme">
+                    <ComboBoxItem>Light</ComboBoxItem>
+                    <ComboBoxItem>Dark</ComboBoxItem>
+                </ComboBox>
+            </controls:SettingsCard>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
