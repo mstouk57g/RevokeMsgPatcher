@@ -56,8 +56,20 @@ namespace RevokeMsgPatcher
 
         public void GoToSettings(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(SettingsPage));
-            SettingsButtonIcon.Glyph = "\uE713;";
+            switch (SettingsButtonIcon.Glyph)
+            {
+                case "\uE713;":
+                    // 在HomePage，图标是Settings的时候前往设置
+                    ContentFrame.Navigate(typeof(SettingsPage));
+                    SettingsButtonIcon.Glyph = "\uE80F;";
+                    break;
+                case "\uE80F;":
+                    // 在SettingsPage，图标是Home的时候前往主页
+                    ContentFrame.Navigate(typeof(MainPage));
+                    SettingsButtonIcon.Glyph = "\uE713;";
+                    break;
+
+            }
         }
 
         private AppWindow GetAppWindowForCurrentWindow()
