@@ -12,6 +12,10 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Microsoft.UI.Windowing;
+using Microsoft.UI;
+using WinRT.Interop;
+using Windows.Graphics;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -23,14 +27,27 @@ namespace RevokeMsgPatcher
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        private AppWindow m_appWindow;
         public MainWindow()
         {
             this.InitializeComponent();
+
+            m_appWindow = GetAppWindowForCurrentWindow();
+            var ScreenHeight = DisplayArea.Primary.WorkArea.Height;
+            var ScreenWidth = DisplayArea.Primary.WorkArea.Width;
+            m_appWindow.Resize(new SizeInt32(760, 310));
+
         }
 
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
             myButton.Content = "Clicked";
+        }
+        private AppWindow GetAppWindowForCurrentWindow()
+        {
+            IntPtr hWnd = WindowNative.GetWindowHandle(this);
+            WindowId myWndId = Win32Interop.GetWindowIdFromWindow(hWnd);
+            return AppWindow.GetFromWindowId(myWndId);
         }
     }
 }
