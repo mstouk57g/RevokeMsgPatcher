@@ -16,6 +16,7 @@ using Microsoft.UI.Windowing;
 using Microsoft.UI;
 using WinRT.Interop;
 using Windows.Graphics;
+using Microsoft.UI.Composition.SystemBackdrops;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -37,12 +38,18 @@ namespace RevokeMsgPatcher
             var ScreenWidth = DisplayArea.Primary.WorkArea.Width;
             m_appWindow.Resize(new SizeInt32(760, 310));
 
+            SystemBackdrop = new MicaBackdrop()
+            { Kind = MicaKind.Base };
+
+            ExtendsContentIntoTitleBar = true;
+            SetTitleBar(AppTitleBar);
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        public string GetAppTitleFromSystem()
         {
-            myButton.Content = "Clicked";
+            return Windows.ApplicationModel.Package.Current.DisplayName;
         }
+
         private AppWindow GetAppWindowForCurrentWindow()
         {
             IntPtr hWnd = WindowNative.GetWindowHandle(this);

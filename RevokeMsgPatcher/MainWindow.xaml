@@ -8,7 +8,35 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
+    <Grid>
+        <Grid
+        x:Name="AppTitleBar"
+        Height="48"
+        Margin="48,0,0,0"
+        VerticalAlignment="Top"
+        Padding="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Image
+            x:Name="AppFontIcon"
+            Width="16"
+            Height="16"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Source="/Assets/Square44x44Logo.png" />
+            <TextBlock
+            Margin="12,0,0,0"
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            Style="{StaticResource CaptionTextBlockStyle}"
+            Text="{x:Bind GetAppTitleFromSystem()}"/>
+        </Grid>
+
+
+        <HyperlinkButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Width="36" Height="36">
+            <FontIcon Glyph="&#xE713;" FontSize="12"/>
+        </HyperlinkButton>
+    </Grid>
 </Window>
