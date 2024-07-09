@@ -27,5 +27,7 @@ namespace RevokeMsgPatcher.Views
         {
             this.InitializeComponent();
         }
+
+        
     }
 }
