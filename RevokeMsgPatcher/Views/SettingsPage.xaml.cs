@@ -28,6 +28,28 @@ namespace RevokeMsgPatcher.Views
             this.InitializeComponent();
         }
 
-        
+        public void OpenBtn(object sender, RoutedEventArgs e)
+        {
+            switch ((sender as Button).Name)
+            {
+                case "WeChatMoreOpenBtn":
+                    break;
+                case "SupportVersions":
+                    System.Diagnostics.Process.Start("explorer.exe", "https://github.com/huiyadanli/RevokeMsgPatcher/wiki/%E7%89%88%E6%9C%AC%E6%94%AF%E6%8C%81");
+                    break;
+                case "Questions":
+                    System.Diagnostics.Process.Start("explorer.exe", "https://github.com/huiyadanli/RevokeMsgPatcher/wiki#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98");
+                    break;
+                case "HowToPatch":
+                    System.Diagnostics.Process.Start("explorer.exe", "https://github.com/huiyadanli/RevokeMsgPatcher/wiki#%E5%8E%9F%E7%90%86");
+                    break;
+                case "Documents":
+                    System.Diagnostics.Process.Start("explorer.exe", "https://github.com/huiyadanli/RevokeMsgPatcher/wiki");
+                    break;
+                case "AboutMeBtn":
+                    System.Diagnostics.Process.Start("explorer.exe", "https://github.com/huiyadanli/RevokeMsgPatcher");
+                    break;
+            }
+        }
     }
 }

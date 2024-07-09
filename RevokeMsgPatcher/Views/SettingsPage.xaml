@@ -27,16 +27,16 @@
                                Margin="30,10,30,0"
                                HeaderIcon="{ui:FontIcon Glyph=&#xE8A9;}"
                                IsEnabled="True">
-                <Button Content="打开" IsEnabled="False" x:Name="WeChatMoreOpenBtn"/>
+                <Button Content="打开" IsEnabled="False" x:Name="WeChatMoreOpenBtn" Click="OpenBtn"/>
             </controls:SettingsCard>
             <TextBlock Margin="30,10,30,0">
                 <Bold>帮助</Bold>
             </TextBlock>
             <StackPanel Orientation="Horizontal" Margin="30,10,30,0">
-                <Button Content="支持版本" IsEnabled="False" Margin="10,10,0,0" x:Name="SupportVersions"/>
-                <Button Content="常见问题" IsEnabled="False" Margin="10,10,0,0" x:Name="Questions"/>
-                <Button Content="防撤回原理" IsEnabled="False" Margin="10,10,0,0" x:Name="HowToPatch"/>
-                <Button Content="完整文档" IsEnabled="False" Margin="10,10,0,0" x:Name="Documents"/>
+                <Button Content="支持版本" Click="OpenBtn" Margin="10,10,0,0" x:Name="SupportVersions"/>
+                <Button Content="常见问题" Click="OpenBtn" Margin="10,10,0,0" x:Name="Questions"/>
+                <Button Content="防撤回原理" Click="OpenBtn" Margin="10,10,0,0" x:Name="HowToPatch"/>
+                <Button Content="完整文档" Click="OpenBtn" Margin="10,10,0,0" x:Name="Documents"/>
             </StackPanel>
             <TextBlock Margin="30,10,30,0">
                 <Bold>关于</Bold>
@@ -47,7 +47,7 @@
                             IsEnabled="True"
                             Margin="30,10,30,0"
                             IsExpanded="False">
-                <Button Content="软件主页" IsEnabled="False" x:Name="AboutMeBtn"/>
+                <Button Content="软件主页" Click="OpenBtn" x:Name="AboutMeBtn"/>
                 <controls:SettingsExpander.Items>
                     <TextBlock Margin="20,20,20,20">
                         本程序仅供学习交流，严禁用于商业用途
